@@ -1,0 +1,63 @@
+<script type="text/javascript">
+    let edades = [];
+
+    for (let i = 0; i < 10; i++) {
+
+        let edadValida = false;
+        let edad;
+
+        //Este ciclo se repite hasta que ingrese una edad valida
+        while (!edadValida) {
+            edad = parseInt(prompt(`Ingrese la edad de la persona ${i + 1}:`));
+
+            if (!isNaN(edad) && edad >= 1 && edad <= 120) {
+                edadValida = true;
+            } else {
+                alert("Ingrese un valor valido entre 1 y 120 anos.");
+            }
+        }
+
+        edades.push(edad);
+    }
+
+    let menoresEdad = 0;
+    let mayoresEdad = 0;
+    let adultosMayores = 0;
+    let edadMinima = edades[0];
+    let edadMaxima = edades[0];
+    let sumaEdades = 0;
+
+    // Recorrer el vector de edades
+    for (let i = 0; i < edades.length; i++) {
+
+        sumaEdades += edades[i]; //Sumamos las edades
+
+        if (edades[i] < 18) {
+            menoresEdad++;
+        } else {
+            mayoresEdad++;
+            if (edades[i] >= 60) {
+                adultosMayores++;
+            }
+        }
+
+        if (edades[i] < edadMinima) {
+            edadMinima = edades[i];
+        }
+        if (edades[i] > edadMaxima) {
+            edadMaxima = edades[i];
+        }
+    }
+
+    let promedioEdades = sumaEdades / edades.length;
+
+    console.log(`Cantidad de menores de edad: ${menoresEdad}`);
+    console.log(`Cantidad de mayores de edad: ${mayoresEdad}`);
+    console.log(`Cantidad de adultos mayores: ${adultosMayores}`);
+    console.log(`Edad minima: ${edadMinima}`);
+    console.log(`Edad maxima: ${edadMaxima}`);
+    console.log(`Promedio de edades: ${promedioEdades}`);
+
+
+
+</script>

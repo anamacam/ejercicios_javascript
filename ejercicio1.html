@@ -1,0 +1,87 @@
+<script type="text/javascript">
+    let calcula = prompt('Desea calcular area o perimetro?');
+
+    if (calcula === 'area' || calcula === 'perimetro') {
+        let figura = prompt(`Introduce la figura geometrica de la que quieres calcular el ${calcula}: triangulo, rectangulo, cuadrado o circulo`);
+
+        switch (figura) {
+            case 'triangulo':
+
+                if (calcula === 'area') {
+
+                    let base = parseFloat(prompt('Introduce la medida de la base del triangulo'));
+                    let altura = parseFloat(prompt('Introduce la medida de la altura del triangulo'));
+                    let areaTriangulo = (base * altura) / 2;
+                    console.log(`El area del triangulo es: ${areaTriangulo}`);
+
+                } else if (calcula === 'perimetro') {
+                    let ladoA = parseFloat(prompt('Introduce la medida del lado A:'));
+                    let ladoB = parseFloat(prompt('Introduce la medida del lado B:'));
+                    let ladoC = parseFloat(prompt('Introduce la medida del lado C:'));
+
+                    let perimetroTriangulo = ladoA + ladoB + ladoC;
+                    console.log(`El perimetro del triangulo es: ${perimetroTriangulo}`);
+                }
+
+                break;
+
+            case 'rectangulo':
+                let lado1 = parseFloat(prompt('Introduce la medida del lado 1 del rectángulo'));
+                let lado2 = parseFloat(prompt('Introduce la medida del lado 2 del rectángulo'));
+
+
+
+                if (calcula === 'area') {
+
+                    let areaRectangulo = lado1 * lado2;
+                    console.log(`El area del rectangulo es: ${areaRectangulo}`);
+                } else if (calcula === 'perimetro') {
+
+                    let perimetroRectangulo = 2 * (lado1 + lado2);
+                    console.log(`El perimetro del rectangulo es: ${perimetroRectangulo}`);
+                }
+
+                break;
+
+            case 'cuadrado':
+                let lado = parseFloat(prompt('Introduce la medida del lado del cuadrado'));
+
+                if (calcula === 'area') {
+
+                    let areaCuadrado = lado * lado;
+                    console.log(`El area del cuadrado es: ${areaCuadrado}`);
+                } else if (calcula === 'perimetro') {
+
+                    let perimetroCuadrado = lado * 4;
+                    console.log(`El perímetro del cuadrado es: ${perimetroCuadrado}`);
+                }
+
+                break;
+
+            case 'circulo':
+                let radio = parseFloat(prompt('Introduce la medida del radio del circulo'));
+
+                if (calcula === 'area') {
+
+                    let areaCirculo = Math.PI * Math.pow(radio, 2);
+                    console.log(`El area del circulo es: ${areaCirculo}`);
+                } else if (calcula === 'perimetro') {
+
+                    let perimetroCirculo = 2 * Math.PI * radio;
+                    console.log(`El perimetro del circulo es: ${perimetroCirculo}`);
+                }
+
+                break;
+
+            default:
+                console.log('La figura ingresada no es valida');
+        }
+
+    } else {
+        console.log('Esta opción no es válida');
+    }
+
+
+
+
+</script>

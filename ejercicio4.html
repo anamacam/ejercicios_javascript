@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array uno</title>
+</head>
+<body>
+<button onclick="agregarPersona()">Agregar Persona</button>
+<button onclick="mostrarPersona()">Mostrar persona</button>
+
+<script type="text/javascript">
+
+    let personas = [];
+
+    function agregarPersona() {
+
+        let nombre = prompt("Ingrese el nombre:");
+        let cedula = prompt("Ingrese el numero de identificacion:");
+        let fechaNacimiento = prompt("Ingrese la fecha de nacimiento:");
+        let correo = prompt("Ingrese el correo:");
+        let ciudadResidencia = prompt("Ingrese la ciudad de residencia:");
+        let ciudadOrigen = prompt("Ingrese la ciudad de origen:");
+
+        let persona = {
+            nombre: nombre,
+            cedula: cedula,
+            fechaNacimiento: fechaNacimiento,
+            correo: correo,
+            ciudadResidencia: ciudadResidencia,
+            ciudadOrigen: ciudadOrigen,
+            cancionesFavoritas: []
+        };
+
+
+        for (let i = 0; i < 3; i++) {
+
+            let artista = prompt(`Ingrese el artista de la cancion favorita ${i + 1}:`);
+            let titulo = prompt(`Ingrese el titulo de la cancion favorita ${i + 1}:`);
+            persona.cancionesFavoritas.push({ artista: artista, titulo: titulo });
+        }
+
+        personas.push(persona);
+        alert("La persona ha sido agregada exitosamente.");
+    }
+
+ 
+    function mostrarPersona() {
+     
+        let posicion = prompt("Ingrese la posicion de la persona en el vector:");
+
+
+        if (posicion > personas.length) {
+            alert("La posicion ingresada no es valida.");
+            return;
+        }
+
+        let persona = personas[posicion];
+        let mensaje = `Nombre: ${persona.nombre}\n`;
+        mensaje += `Cedula: ${persona.cedula}\n`;
+        mensaje += `Fecha de nacimiento: ${persona.fechaNacimiento}\n`;
+        mensaje += `Correo: ${persona.correo}\n`;
+        mensaje += `Ciudad de residencia: ${persona.ciudadResidencia}\n`;
+        mensaje += `Ciudad de origen: ${persona.ciudadOrigen}\n`;
+        mensaje += `Canciones favoritas:\n`;
+        for (let i = 0; i < persona.cancionesFavoritas.length; i++) {
+            mensaje += `${i + 1}. ${persona.cancionesFavoritas[i].titulo} - ${persona.cancionesFavoritas[i].artista}\n`;
+        }
+        console.log(mensaje);
+    }
+
+</script>
+    
+</body>
+</html>

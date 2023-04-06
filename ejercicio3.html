@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    let vector1 = [];
+    let vector2 = [];
+    let vectoMezclado = [];
+
+    for (let i = 0; i < 5; i++) {
+        let num;
+        let numValido = false;
+
+        while (!numValido) {
+            num = parseInt(prompt(`Ingrese un numero entero para el primer vector (orden ascendente):`));
+
+            if (i == 0 || num > vector1[i - 1]) {
+                numValido = true;
+            } else {
+                alert("El numero ingresado debe ser mayor al anterior: " + vector1[i - 1]);
+            }
+        }
+        vector1.push(num);
+    }
+
+    for (let i = 0; i < 5; i++) {
+        let num;
+        let numValido = false;
+
+        while (!numValido) {
+            num = parseInt(prompt(`Ingrese un numero entero para el segundo vector (orden ascendente):`));
+
+            if (i == 0 || num > vector2[i - 1]) {
+                numValido = true;
+            } else {
+                alert("El numero ingresado debe ser mayor al anterior: " + vector2[i - 1]);
+            }
+        }
+        vector2.push(num);
+    }
+
+    let i = 0, j = 0;
+    while (i < 5 || j < 5) {
+
+        if (j >= 5 || (i < 5 && vector1[i] < vector2[j])) {
+            vectoMezclado.push(vector1[i]);
+            i++;
+        } else {
+            vectoMezclado.push(vector2[j]);
+            j++;
+        }
+    }
+
+
+    console.log(vectoMezclado);
+
+
+
+</script>
